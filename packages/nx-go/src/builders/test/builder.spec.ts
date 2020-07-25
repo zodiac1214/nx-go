@@ -2,9 +2,12 @@ import { Architect } from '@angular-devkit/architect';
 import { TestingArchitectHost } from '@angular-devkit/architect/testing';
 import { schema } from '@angular-devkit/core';
 import { join } from 'path';
-import { BuildBuilderSchema } from './schema';
+import { TestBuilderSchema } from './schema';
 
-const options: BuildBuilderSchema = {};
+const options: TestBuilderSchema = {
+  main: 'main.go',
+  outputPath: '/root/dist/api'
+};
 
 describe('Command Runner Builder', () => {
   let architect: Architect;
@@ -27,6 +30,8 @@ describe('Command Runner Builder', () => {
     const run = await architect.scheduleBuilder('@nx-go/nx-go:test', options);
     // The "result" member (of type BuilderOutput) is the next output.
     const output = await run.result;
+
+    console.log({ output })
 
     // Stop the builder from running. This stops Architect from keeping
     // the builder-associated states in memory, since builders keep waiting

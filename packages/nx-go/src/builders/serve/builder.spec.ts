@@ -2,9 +2,12 @@ import { Architect } from '@angular-devkit/architect';
 import { TestingArchitectHost } from '@angular-devkit/architect/testing';
 import { schema } from '@angular-devkit/core';
 import { join } from 'path';
-import { BuildBuilderSchema } from './schema';
+import { ServeBuilderSchema } from './schema';
 
-const options: BuildBuilderSchema = {};
+const options: ServeBuilderSchema = {
+  main: 'main.go',
+  outputPath: '/root/dist/api'
+};
 
 describe('Command Runner Builder', () => {
   let architect: Architect;
