@@ -1,0 +1,56 @@
+{
+  "root": "packages/nx-gin",
+  "sourceRoot": "packages/nx-gin/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/nx-gin/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/nx-gin"],
+      "options": {
+        "jestConfig": "packages/nx-gin/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/nx-gin",
+        "tsConfig": "packages/nx-gin/tsconfig.lib.json",
+        "packageJson": "packages/nx-gin/package.json",
+        "main": "packages/nx-gin/src/index.ts",
+        "assets": [
+          "packages/nx-gin/*.md",
+          {
+            "input": "./packages/nx-gin/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/nx-gin/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/nx-gin",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./packages/nx-gin",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    }
+  },
+  "tags": []
+}

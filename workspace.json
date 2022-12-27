@@ -1,6 +1,8 @@
 {
   "version": 2,
   "projects": {
+    "nx-gin": "packages/nx-gin",
+    "nx-gin-e2e": "e2e/nx-gin-e2e",
     "nx-go": "packages/nx-go",
     "nx-go-e2e": "e2e/nx-go-e2e"
   }

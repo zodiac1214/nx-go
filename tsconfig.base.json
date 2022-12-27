@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-go/nx-gin": ["packages/nx-gin/src/index.ts"],
       "nx-go/nx-go": ["packages/nx-go/src/index.ts"]
     }
   },

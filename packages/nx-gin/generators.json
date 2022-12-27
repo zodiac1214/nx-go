@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "nx-gin",
+  "version": "0.0.1",
+  "generators": {
+    "nx-gin": {
+      "factory": "./src/generators/nx-gin/generator",
+      "schema": "./src/generators/nx-gin/schema.json",
+      "description": "nx-gin generator"
+    }
+  }
+}
